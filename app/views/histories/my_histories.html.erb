@@ -4,12 +4,7 @@
   </div>
   <div class="col-xs-4 col-sm-2 col-md-2">
     <%= link_to 'New History', new_history_path, class: "btn btn-info btn-sm" %>
-  <br> <br>
-    <%= link_to 'My History', histories_my_histories_path, class: "btn btn-success btn-sm" %>
-    <br> <br>
-
   </div>
-
 </div>
 
 <div class="row">
@@ -22,14 +17,10 @@
           <small><%= time_ago_in_words(history.created_at) %> ago</small>
           <p><%= history.content.truncate(150)  %></p>
 
-          <% if user_signed_in? && history.user == current_user ||  user_signed_in? &&  current_user.admin %>
           <p><%= link_to 'Show', history, class: "btn btn-primary" %>
             <%= link_to 'Edit', edit_history_path(history), class: "btn btn-warning" %>
             <%= link_to 'Destroy', history, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></p>
-
-          <% else %>
-          <p><%= link_to 'Show', history, class: "btn btn-primary" %></p>
-          <% end %>
+  
 
 
         </div>
